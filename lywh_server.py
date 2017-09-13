@@ -12,6 +12,7 @@ from tornado.options import define, options
 from logging.handlers import RotatingFileHandler
 
 from handlers.index import IndexHandler
+from handlers.novelty import *
 from handlers.user import LoginHandler, LogoutHandler
 
 
@@ -36,6 +37,14 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", IndexHandler),
+
+            (r"/novelty", NoveltyHandler),
+            (r"/novelty/edit/([0-9Xx\-]+)", NoveltyEditHandler),
+            (r"/novelty/del/([0-9Xx\-]+)", NoveltyDelHandler),
+            (r"/novelty/add/([0-9Xx\-]+)", NoveltyAddHandler),
+            (r"/novelty/json", NoveltyJsonHandler),
+
+
             (r"/login", LoginHandler),
             (r"/logout", LogoutHandler),
         ]
