@@ -43,6 +43,7 @@ class Application(tornado.web.Application):
             (r"/novelty/del/([0-9Xx\-]+)", NoveltyDelHandler),
             (r"/novelty/add/([0-9Xx\-]+)", NoveltyAddHandler),
             (r"/novelty/json", NoveltyJsonHandler),
+            (r"/novelty/detail/([0-9Xx\-]+)", NoveltyDetailJsonHandler),
 
 
             (r"/login", LoginHandler),
